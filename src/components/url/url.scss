@@ -59,6 +59,7 @@
       font-size: inherit;
       text-align: center;
       margin-top: 0.5rem;
+      overflow-wrap: anywhere;
     }
 
     .brief,
@@ -100,6 +101,10 @@
 
 .modal-body {
   font-size: 1.2rem !important;
+
+  .form-group {
+    overflow-wrap: break-word;
+  }
   p {
     font-size: 1.05rem;
     > b {
