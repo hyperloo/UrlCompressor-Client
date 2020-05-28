@@ -1,0 +1,71 @@
+.parent-auth {
+  max-width: 40rem;
+  width: 90%;
+  margin: auto;
+}
+
+.auth-container {
+  display: flex;
+  justify-content: center;
+  border-bottom: 1px solid black;
+
+  > button:hover {
+    color: rgba(165, 73, 73, 0.8);
+  }
+
+  > .active {
+    border-bottom: 2.5px solid black;
+  }
+}
+
+.authForm {
+  width: 40rem;
+  max-width: 90%;
+  margin: 1rem auto;
+
+  label {
+    font-size: 1.7rem;
+  }
+
+  button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    > i {
+      font-size: 1.5rem;
+    }
+
+    &:focus {
+      box-shadow: none;
+    }
+  }
+}
+
+.appInfo {
+  text-align: center;
+  font-size: 1.2rem;
+  border: 1px solid black;
+  border-radius: 20px;
+  padding: 1rem;
+  margin-top: 2rem;
+  font-weight: 300;
+  > i,
+  > mark {
+    font-size: inherit;
+  }
+  > h3 {
+    margin: 1.5rem auto;
+
+    > mark > b {
+      font-size: 1.75rem;
+    }
+  }
+
+  > h4 {
+    margin: 1.2rem auto 1.5rem auto;
+
+    > b {
+      font-size: 1.5rem;
+    }
+  }
+}

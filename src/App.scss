@@ -1,0 +1,14 @@
+.main-content {
+  flex-grow: 1;
+}
+
+.footerLink {
+  > i {
+    font-size: 1.6rem;
+    color: white;
+  }
+  &:hover {
+    text-decoration: none;
+    color: wheat;
+  }
+}

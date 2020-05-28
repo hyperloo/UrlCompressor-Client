@@ -1,0 +1,17 @@
+.msg {
+  text-align: center;
+  padding: 1.5rem !important;
+  margin: 1rem;
+  font-size: 1.3rem;
+  border-radius: 5px;
+}
+
+.success {
+  background-color: rgba(0, 200, 81, 0.51);
+  border: 1px solid #007e33;
+}
+
+.danger {
+  background-color: rgba(237, 67, 55, 0.43);
+  border: 1px solid red;
+}

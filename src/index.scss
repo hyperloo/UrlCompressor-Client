@@ -1,0 +1,75 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Orbitron&display=swap");
+
+$primary-font: Poppins, "sans-serif";
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: $primary-font;
+  font-size: 70%;
+  color: #1c3d3d;
+}
+
+@media (max-width: 550px) {
+  * {
+    font-size: 65%;
+  }
+}
+
+body {
+  font-family: $primary-font;
+  margin: 0;
+  // font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+  //   "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+  //   sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: $primary-font;
+}
+
+input {
+  font-family: $primary-font;
+}
+
+button {
+  &:focus {
+    outline: 0;
+  }
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.bigSpinner {
+  width: 6rem !important;
+  height: 6rem !important;
+  margin: 5rem auto;
+  display: flex !important;
+  border-width: 0.25rem !important;
+}
+
+.smallSpinner {
+  vertical-align: inherit !important;
+}
+
+.emptyText {
+  padding: 1rem;
+  margin: auto;
+  text-align: center;
+  font-size: 2rem;
+}

@@ -1,0 +1,206 @@
+.url-div {
+  width: 95%;
+  max-width: 40rem;
+  margin: 3rem auto;
+
+  .row {
+    margin: 0 !important;
+
+    .column {
+      display: flex;
+      justify-content: center;
+
+      input {
+        text-align: center;
+      }
+      button {
+        width: 100%;
+      }
+    }
+
+    .date {
+      position: relative;
+      display: block;
+
+      &:hover .tooltip {
+        visibility: visible !important;
+      }
+    }
+  }
+
+  .search-div {
+    display: flex;
+    justify-content: center;
+    margin: 1rem auto;
+    align-items: center;
+
+    .search {
+      border: none;
+      border-bottom: 1px solid black;
+      text-align: center;
+      width: 90%;
+      max-width: 30rem;
+
+      &:focus {
+        box-shadow: none;
+      }
+    }
+  }
+
+  .item {
+    font-size: 1.1rem;
+    border: 1px solid black;
+    padding: 0.5rem;
+    margin: 0.5rem;
+    border-radius: 10px;
+    list-style: none;
+
+    section {
+      font-size: inherit;
+      text-align: center;
+      margin-top: 0.5rem;
+    }
+
+    .brief,
+    section {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+
+      p {
+        font-size: 0.95rem;
+        margin: 0;
+
+        a {
+          font-size: inherit;
+        }
+      }
+
+      button {
+        // border: 1px solid black;
+        padding: 0.5rem;
+        margin: auto 0.5rem;
+        border-radius: 5px;
+        cursor: pointer;
+
+        &:hover {
+          box-shadow: 1px 1px 1px black;
+        }
+      }
+    }
+    .brief {
+      > div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
+}
+
+.modal-body {
+  font-size: 1.2rem !important;
+  p {
+    font-size: 1.05rem;
+    > b {
+      font-weight: bold;
+      font-size: 1.15rem;
+    }
+  }
+  select {
+    option {
+      font-size: 1.05rem;
+    }
+  }
+  .fas {
+    font-size: 1.05rem;
+  }
+
+  .statusDiv {
+    > label {
+      font-size: 1.05rem;
+    }
+    > p {
+      display: flex;
+      align-items: center;
+
+      > span {
+        padding: 0.4rem 1rem;
+        border-radius: 0.3rem;
+        font-size: 1.05rem;
+        margin: auto 0.65rem;
+      }
+      > .active {
+        opacity: 0.5;
+      }
+    }
+  }
+
+  .modal-footer {
+    justify-content: space-between;
+  }
+}
+
+.custom-switch {
+  label {
+    font-size: 1.05rem;
+  }
+}
+
+.barLink {
+  font-size: inherit;
+}
+
+.copyBtn {
+  cursor: pointer;
+  font-size: 2.3rem;
+  margin: 0.3rem;
+  margin-left: 0.5rem;
+  padding: 0 0.3rem;
+  border-radius: 5px;
+  display: inline-block;
+
+  &:hover {
+    transform: scale(1.1, 1.1);
+  }
+}
+
+.copyAnimation {
+  animation: pop 0.3s ease-in 1;
+}
+@-moz-keyframes pop {
+  0% {
+    font-weight: normal;
+    transform: scale(1, 1);
+  }
+  50% {
+    font-weight: bold;
+    transform: scale(1.15, 1.15);
+  }
+  // 75% {
+  //   font-weight: bold;
+  //   transform: scale(1.1, 1.1);
+  // }
+  100% {
+    font-weight: normal;
+    transform: scale(1, 1);
+  }
+}
+@keyframes pop {
+  0% {
+    font-weight: normal;
+    transform: scale(1, 1);
+  }
+  50% {
+    font-weight: bold;
+    transform: scale(1.15, 1.15);
+  }
+  // 75% {
+  //   font-weight: bold;
+  //   transform: scale(1.1, 1.1);
+  // }
+  100% {
+    font-weight: normal;
+    transform: scale(1, 1);
+  }
+}
