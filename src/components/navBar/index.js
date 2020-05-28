@@ -19,7 +19,7 @@ const NavBar = ({ loading }) => {
         return (
           <header className="main-navigation">
             <h2>
-              <NavLink to="/tasks">URL Shortener</NavLink>
+              <NavLink to="/tasks">URL Compressor</NavLink>
             </h2>
             {loading ? (
               <Spinner className="bigSpinner" color="primary" />

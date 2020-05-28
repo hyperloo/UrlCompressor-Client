@@ -113,6 +113,26 @@ class App extends React.Component {
               )}
             </Switch>
           </main>
+          <footer
+            style={{
+              marginTop: "3rem",
+              textAlign: "center",
+              fontSize: "1.6rem",
+              background: "#1c3d3d",
+              color: "white",
+            }}
+          >
+            Created by{" "}
+            <a
+              href="https://tekhin3.netlify.app"
+              target="_blank"
+              className="footerLink"
+              rel="noopener"
+            >
+              <i>tekhin</i>
+            </a>
+            , &#169; 2020
+          </footer>
         </AuthContext.Provider>
       </BrowserRouter>
     );
