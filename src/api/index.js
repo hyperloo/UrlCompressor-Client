@@ -1,1 +1,1 @@
-export const api = "https://cmprsr.herokuapp.com/api";
+export const api = "https://mnfy.herokuapp.com/api";

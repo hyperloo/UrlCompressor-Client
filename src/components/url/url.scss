@@ -60,6 +60,11 @@
       text-align: center;
       margin-top: 0.5rem;
       overflow-wrap: anywhere;
+      overflow: auto;
+
+      > p {
+        overflow: auto;
+      }
     }
 
     .brief,
@@ -104,6 +109,11 @@
 
   .form-group {
     overflow-wrap: break-word;
+    overflow: auto;
+
+    > p {
+      overflow: auto;
+    }
   }
   p {
     font-size: 1.05rem;
