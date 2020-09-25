@@ -240,7 +240,10 @@ class urlPage extends Component {
             placeholder="Search Compressed URL"
             onChange={this.searchHandler}
           />
-          <span style={{ fontSize: "1.1rem" }}> &#x1F50D;</span>
+          <span role="img" style={{ fontSize: "1.1rem" }}>
+            {" "}
+            &#x1F50D;
+          </span>
         </section>
         {this.state.loading && !this.state.creating ? (
           <Spinner className="bigSpinner" />

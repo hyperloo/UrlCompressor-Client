@@ -127,7 +127,7 @@ class App extends React.Component {
               href="https://tekhin3.netlify.app"
               target="_blank"
               className="footerLink"
-              rel="noopener"
+              rel="noopener noreferrer"
             >
               <i>tekhin</i>
             </a>

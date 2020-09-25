@@ -6,10 +6,13 @@ import {
   ModalFooter,
   Input,
   CustomInput,
+  Row,
+  Col,
 } from "reactstrap";
 import moment from "moment";
 import Modal from "./Modal";
 import AuthContext from "../../context/auth-context";
+import QRCode from "qrcode.react";
 
 const Url = ({ url, clickHandler, deleteHandler, updateHandler, ind }) => {
   const { longUrl, shortUrl, clicks, _id, lastDate, status, createdAt } = url;
@@ -28,98 +31,114 @@ const Url = ({ url, clickHandler, deleteHandler, updateHandler, ind }) => {
         return (
           <React.Fragment>
             <Modal modal={modal} toggle={toggle} title="URL Details">
-              <FormGroup>
-                <p>
-                  <b>Original URL: </b>
-                  <br />
-                  <a
-                    className="barLink"
-                    href={`${longUrl}`}
-                    target="_blank"
-                    rel="noopener"
-                  >
-                    {longUrl}
-                  </a>
-                </p>
-              </FormGroup>
-              <FormGroup>
-                <p>
-                  <b>Compressed URL: </b> &nbsp;
-                  <a
-                    className="barLink"
-                    href={`${shortUrl}`}
-                    target="_blank"
-                    rel="noopener"
-                  >
-                    {shortUrl}
-                  </a>
-                  <span
-                    onClick={async () => {
-                      setClick(true);
-                      navigator.clipboard.writeText(shortUrl);
-                      await setTimeout(() => setClick(false), 1000);
-                    }}
-                    className={`copyBtn ${click && "copyAnimation"}`}
-                  >
-                    &#x2398;
-                  </span>
-                </p>
-              </FormGroup>
-              <FormGroup>
-                <p>
-                  <b>Date of Creation:</b> &nbsp;&nbsp;
-                  {moment(createdAt).format("Do MMM YYYY")}
-                </p>
-              </FormGroup>
-              <FormGroup>
-                <p>
-                  <b>No. of CLicks:</b> &nbsp;&nbsp;{clicks}
-                </p>
-              </FormGroup>
-              <FormGroup>
-                <p>
-                  <b>Date of Expiration:</b> &nbsp;&nbsp;
-                  {lastDate ? (
-                    <>
-                      {moment(lastDate).format("Do MMM YYYY")} @{" "}
-                      {moment(lastDate).fromNow()}
-                    </>
+              <Row>
+                <Col sm="12" md="8">
+                  <FormGroup>
+                    <div className="p">
+                      <b>Original URL: </b>
+                      <br />
+                      <a
+                        className="barLink"
+                        href={`${longUrl}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {longUrl}
+                      </a>
+                    </div>
+                  </FormGroup>
+                  <FormGroup>
+                    <div className="p">
+                      <b>Compressed URL: </b> <br />
+                      <a
+                        className="barLink"
+                        href={`${shortUrl}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {shortUrl}
+                      </a>
+                      <span
+                        onClick={async () => {
+                          setClick(true);
+                          navigator.clipboard.writeText(shortUrl);
+                          await setTimeout(() => setClick(false), 1000);
+                        }}
+                        className={`copyBtn ${click && "copyAnimation"}`}
+                      >
+                        &#x2398;
+                      </span>
+                    </div>
+                  </FormGroup>
+                  <FormGroup>
+                    <div className="p">
+                      <b>Date of Creation:</b> &nbsp;&nbsp;
+                      {moment(createdAt).format("Do MMM YYYY")}
+                    </div>
+                  </FormGroup>
+                  <FormGroup>
+                    <div className="p">
+                      <b>No. of CLicks:</b> &nbsp;&nbsp;{clicks}
+                    </div>
+                  </FormGroup>
+                  <FormGroup>
+                    <div className="p">
+                      <b>Date of Expiration:</b> &nbsp;&nbsp;
+                      {lastDate ? (
+                        <div style={{ display: "inline", fontSize: "1.05rem" }}>
+                          {moment(lastDate).format("Do MMM YYYY")} @{" "}
+                          {moment(lastDate).fromNow()}
+                        </div>
+                      ) : (
+                        "Not Applicable"
+                      )}
+                    </div>
+                    <Input
+                      type="date"
+                      onChange={(e) => changeLast(e.target.value)}
+                    />
+                  </FormGroup>
+                  <FormGroup className="statusDiv">
+                    <div className="p">
+                      <b>Status:</b> &nbsp;&nbsp;
+                      <span
+                        className={`badge badge-secondary ${
+                          newStatus ? "active" : ""
+                        }`}
+                      >
+                        Inactive
+                      </span>
+                      <CustomInput
+                        type="switch"
+                        id="exampleCustomSwitch"
+                        name="customSwitch"
+                        checked={newStatus}
+                        onChange={(e) => changeStatus(e.currentTarget.checked)}
+                      />
+                      <span
+                        className={`badge badge-success ${
+                          !newStatus ? "active" : ""
+                        }`}
+                      >
+                        Active
+                      </span>
+                    </div>
+                  </FormGroup>
+                </Col>
+                <Col className="QRContainer" sm="12" md="4">
+                  {shortUrl ? (
+                    <QRCode
+                      value={`${shortUrl}`}
+                      size="192"
+                      bgColor="#FFFFFF"
+                      fgColor="#000000"
+                      level="H"
+                    />
                   ) : (
-                    "Not Applicable"
+                    <></>
                   )}
-                </p>
-                <Input
-                  type="date"
-                  onChange={(e) => changeLast(e.target.value)}
-                />
-              </FormGroup>
-              <FormGroup className="statusDiv">
-                <p>
-                  <b>Status:</b> &nbsp;&nbsp;
-                  <span
-                    className={`badge badge-secondary ${
-                      newStatus ? "active" : ""
-                    }`}
-                  >
-                    Inactive
-                  </span>
-                  <CustomInput
-                    type="switch"
-                    id="exampleCustomSwitch"
-                    name="customSwitch"
-                    checked={newStatus}
-                    onChange={(e) => changeStatus(e.currentTarget.checked)}
-                  />
-                  <span
-                    className={`badge badge-success ${
-                      !newStatus ? "active" : ""
-                    }`}
-                  >
-                    Active
-                  </span>
-                </p>
-              </FormGroup>
-
+                </Col>
+              </Row>
               <ModalFooter>
                 <Button
                   color="danger"
@@ -181,7 +200,7 @@ const Url = ({ url, clickHandler, deleteHandler, updateHandler, ind }) => {
                   <a
                     href={`${longUrl}`}
                     target="_blank"
-                    rel="noopener"
+                    rel="noopener noreferrer"
                     className="barLink"
                   >
                     {longUrl}
@@ -194,7 +213,7 @@ const Url = ({ url, clickHandler, deleteHandler, updateHandler, ind }) => {
                     <a
                       href={`${shortUrl}`}
                       target="_blank"
-                      rel="noopener"
+                      rel="noopener noreferrer"
                       className="barLink"
                       onClick={() => {
                         clickHandler(ind);
