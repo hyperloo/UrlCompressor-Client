@@ -15,6 +15,7 @@ class urlPage extends Component {
     urls: [],
     searchedUrls: [],
     longUrl: "",
+    customCode: "",
     lastDate: "",
     creating: false,
   };
@@ -59,12 +60,14 @@ class urlPage extends Component {
         loading: false,
         creating: false,
         longUrl: "",
+        customCode: "",
         lastDate: "",
       });
       return;
     }
     const body = {
       longUrl: this.state.longUrl.trim(),
+      customCode: this.state.customCode.trim(),
       lastDate: this.state.lastDate !== "" ? this.state.lastDate : null,
     };
     try {
@@ -85,6 +88,7 @@ class urlPage extends Component {
         loading: false,
         creating: false,
         longUrl: "",
+        customCode: "",
         lastDate: "",
       });
     } catch (err) {
@@ -204,6 +208,18 @@ class urlPage extends Component {
                 placeholder="Enter Url to be compressed"
               />
             </Col>
+            <Col className="no-gutters column py-2" sm={12}>
+              <Input
+                type="text"
+                name="customCode"
+                value={this.state.customCode}
+                onChange={(e) => {
+                  this.context.createMessage(false, null);
+                  this.setState({ customCode: e.target.value });
+                }}
+                placeholder="Custom url code (leave blank if you don't need)"
+              />
+            </Col>
 
             <Col className="no-gutters column date py-2 pr-md-1 pb-2" md={8}>
               <Input
@@ -250,19 +266,19 @@ class urlPage extends Component {
         ) : this.state.searchedUrls.length === 0 ? (
           <div className="emptyText">No URLs are Compressed Here!</div>
         ) : (
-          <ul>
-            {this.state.searchedUrls.map((url, i) => (
-              <Url
-                url={url}
-                clickHandler={this.clickHandler}
-                deleteHandler={this.deleteHandler}
-                updateHandler={this.updateHandler}
-                key={i}
-                ind={i}
-              />
-            ))}
-          </ul>
-        )}
+              <ul>
+                {this.state.searchedUrls.map((url, i) => (
+                  <Url
+                    url={url}
+                    clickHandler={this.clickHandler}
+                    deleteHandler={this.deleteHandler}
+                    updateHandler={this.updateHandler}
+                    key={i}
+                    ind={i}
+                  />
+                ))}
+              </ul>
+            )}
       </div>
     );
   }
