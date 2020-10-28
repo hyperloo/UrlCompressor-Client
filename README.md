@@ -36,6 +36,8 @@ Here one can create a new `Compressed URL` with it's `Expiration Date` if needed
 
 Also, one can see all the `compressed URLs` by him with the `Original URLs` and can copy it for sharing.
 
+One can also choose `Custom Code` for the compressed URL.
+
 <br/><br/>
 
 ## **URL Details and Update Section 📝**
